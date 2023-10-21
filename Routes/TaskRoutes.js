@@ -4,35 +4,33 @@ const validateJWT = require('../utils/validate');
 const router = express.Router();
 
 const {
-    getAllTasks,
-    getOneTaskById,
-    searchTasks,
-    addTask,
-    updateTask,
-    deleteTask,
-} = require('../controllers/TaskController');
+    getAllProducto,
+    getOneProductoById,
+    searchProductos,
+    addProducto,
+    updateProducto,
+    deleteProducto,
+} = require('../controllers/ProductoController');
 
 
-// Obtener todas las tareas
-router.get('/', getAllTasks);
 
-// Buscar tareas
-router.get('/search', validateJWT, searchTasks);
-
-// Obtener una tarea
-router.get('/:id', getOneTaskById);
+router.get('/', getAllProducto);
 
 
-//Agregar una tarea  createTask
-router.post('/', validateJWT, addTask);
+router.get('/search', validateJWT, searchProducto);
 
-// Actualizar todo el objeto put ~~
-// Actualizar una propiedad del objeto
-router.patch('/:id', updateTask);
+
+router.get('/:id', getOneProductoById);
+
+
+router.post('/', validateJWT, addProducto);
+
+
+router.patch('/:id', updateProducto);
 
 //Eliminar una tarea
 
-router.delete('/:id', deleteTask);
+router.delete('/:id', deleteProducto);
 
 
 

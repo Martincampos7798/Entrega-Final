@@ -3,14 +3,14 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    addUser,
-    authUser
-} = require('../controllers/UserController');
+    addPaciente,
+    authPaciente
+} = require('../controllers/PacienteController');
 
 // Autenticando un usuario
-router.post('/auth', authUser);
+router.post('/auth', authPaciente);
 
 //Agregar un usuario nuevo
-router.post('/', addUser);
+router.post('/', addPaciente);
 
 module.exports = router;

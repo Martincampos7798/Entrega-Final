@@ -1,25 +1,25 @@
 const {
-    findAllTasks,
-    createTask,
-    searchTasks
-} = require('../services/TaskService');
+    findAllProductos,
+    createProducto,
+    searchProductoss
+} = require('../services/askService');
 module.exports = {
-    getAllTasks: (req, res) => {
+    getAllProductos: (req, res) => {
         // código para conectar
-        findAllTasks()
-            .then((tasks) => {
-                return res.status(200).send(tasks);
+        findAllProductoss()
+            .then((productos) => {
+                return res.status(200).send(productos);
             })
             .catch((err) => {
-                console.log('error mega importante super necesario saber que paso en el instante', err);
+                console.log('Verifica el Error', err);
                 return res.status(500).send('Hubo un error');
             });
     },
-    getOneTaskById: (req, res) => {
+    getOneProductoById: (req, res) => {
         // código para conectar
-        return res.send('getOneTaskById');
+        return res.send('getOneProductoById');
     },
-    searchTasks: (req, res) => { // aggregate
+    searchProductos: (req, res) => { // aggregate
         const params = {};
         if(req.query.is_done){
             params.is_done = req.query.is_done;
@@ -28,32 +28,32 @@ module.exports = {
             params.end_date = { $gt : req.query.end_date };
         }
 
-        searchTasks(params)
-        .then((tasks) => {
-            return res.status(200).send(tasks);
+        searchProductos(params)
+        .then((productos) => {
+            return res.status(200).send(productos);
         })
         .catch((err) => {
-            console.log('error mega importante super necesario saber que paso en el instante', err);
+            console.log('Verifica el Error', err);
             return res.status(500).send('Hubo un error');
         })
     },
-    addTask: (req, res) => {
+    addProducto: (req, res) => {
         const { description, end_date, is_done } = req.body;
-        createTask({ description, end_date, is_done })
-            .then((task) => {
-                return res.status(201).send(task);
+        createProducto({ description, end_date, is_done })
+            .then((producto) => {
+                return res.status(201).send(producto);
             })
             .catch((err) => {
-                console.log('error mega importante super necesario saber que paso en el instante', err);
+                console.log('Verifica el Error', err);
                 return res.status(500).send('Hubo un error');
             });
     },
-    updateTask: (req, res) => {
+    updateProducto: (req, res) => {
         // código para conectar
-        return res.send('updateTask');
+        return res.send('updateProducto');
     },
-    deleteTask: (req, res) => {
+    deleteProducto: (req, res) => {
         // código para conectar
-        return res.send('deleteTask');
+        return res.send('deleteProducto');
     },
 };

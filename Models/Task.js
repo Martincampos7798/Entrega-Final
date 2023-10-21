@@ -17,13 +17,7 @@ const taskSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const Task = mongoose.model('Task', taskSchema);
+const Producto = mongoose.model('Producto', productoSchema);
 
-module.exports = Task;
+module.exports = Producto;
 
-/*
-{
-    _id: ObjectId('23hd43j3j4kd5462')
-}
-
-*/

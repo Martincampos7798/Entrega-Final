@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-const TaskRoutes = require('./TaskRoutes');
-const UserRoutes = require('./UserRoutes');
+const ProductoRoutes = require('./ProductoRoutes');
+const PacienteRoutes = require('./PacienteRoutes');
 
-router.use('/tasks', TaskRoutes);
-router.use('/users', UserRoutes);
+router.use('/Producto', ProductoRoutes);
+router.use('/Paciente', PacienteRoutes);
 
 module.exports = router;
